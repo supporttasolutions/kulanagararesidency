@@ -140,9 +140,16 @@ export function BookingModalProvider({ children }: { children: React.ReactNode }
                   </span>
                   <input
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => {
+                      // Only allow digits, limit to 10 characters
+                      const digitsOnly = e.target.value.replace(/\D/g, "");
+                      if (digitsOnly.length <= 10) {
+                        setPhone(digitsOnly);
+                      }
+                    }}
                     required
                     inputMode="numeric"
+                    maxLength={10}
                     pattern="\\d{10}"
                     placeholder="9876543210"
                     className="h-12 rounded-2xl border border-border bg-background/40 px-4 text-sm text-foreground outline-none focus:border-[color-mix(in_oklab,var(--color-accent)_55%,transparent)]"
