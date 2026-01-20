@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/site/Section";
-import { Button } from "@/components/ui/Button";
 import { getRoom, ROOMS } from "@/lib/rooms";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { Button } from "@/components/ui/Button";
+import { BookNowButton } from "@/components/site/BookNowButton";
 
 export async function generateStaticParams() {
   return ROOMS.map((r) => ({ slug: r.slug }));
@@ -86,14 +87,9 @@ export default async function RoomDetailPage({
               Send your dates and any notes. We’ll confirm availability and tariff.
             </p>
             <div className="mt-7 grid gap-3">
-              <Button
-                href={buildWhatsAppLink({ roomType: room.name })}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="primary"
-              >
+              <BookNowButton prefill={{ roomType: room.name }} variant="primary">
                 Book this room on WhatsApp
-              </Button>
+              </BookNowButton>
               <Button href="/policies">View policies</Button>
             </div>
 

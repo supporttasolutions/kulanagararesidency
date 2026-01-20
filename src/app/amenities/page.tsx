@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Section } from "@/components/site/Section";
+import { BookNowButton } from "@/components/site/BookNowButton";
 
 export const metadata = {
   title: "Amenities | Kulangara Residency",
@@ -29,6 +30,7 @@ export default function AmenitiesPage() {
         eyebrow="Amenities"
         title="Quiet comfort, thoughtfully provided."
         subtitle="Minimal icons. Clear inclusions. Designed to build trust—quickly."
+        actions={<BookNowButton variant="primary">Book on WhatsApp</BookNowButton>}
       >
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="relative overflow-hidden rounded-[32px] border border-border bg-surface">

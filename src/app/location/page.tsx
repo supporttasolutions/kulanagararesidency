@@ -1,7 +1,7 @@
 import { Section } from "@/components/site/Section";
 import { Button } from "@/components/ui/Button";
 import { SITE } from "@/lib/site";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { BookNowButton } from "@/components/site/BookNowButton";
 
 export const metadata = {
   title: "Location | Kulangara Residency",
@@ -54,14 +54,9 @@ export default function LocationPage() {
               <Button href={SITE.directionsLink} target="_blank" rel="noopener noreferrer">
                 Get Directions
               </Button>
-              <Button
-                href={buildWhatsAppLink({ roomType: "General" })}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="primary"
-              >
+              <BookNowButton prefill={{ roomType: "General" }} variant="primary">
                 Book on WhatsApp
-              </Button>
+              </BookNowButton>
             </div>
           </div>
         </div>

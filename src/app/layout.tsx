@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/site/Header";
 import { MobileStickyBar } from "@/components/site/MobileStickyBar";
 import { SITE } from "@/lib/site";
+import { BookingModalProvider } from "@/components/site/BookingModalProvider";
 
 export const metadata: Metadata = {
   title: "Kulangara Residency | Premium Stay in Kottayam",
@@ -68,11 +69,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${heading.variable} ${body.variable} antialiased`}>
-        <Header />
-        <main className="min-h-screen bg-background pt-24 pb-24 md:pb-10">
-          {children}
-        </main>
-        <MobileStickyBar />
+        <BookingModalProvider>
+          <Header />
+          <main className="min-h-screen bg-background pt-24 pb-24 md:pb-10">
+            {children}
+          </main>
+          <MobileStickyBar />
+        </BookingModalProvider>
 
         <script
           type="application/ld+json"

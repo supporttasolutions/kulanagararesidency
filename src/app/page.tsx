@@ -6,9 +6,12 @@ import { Section } from "@/components/site/Section";
 import { Button } from "@/components/ui/Button";
 import { SITE } from "@/lib/site";
 import { ROOMS } from "@/lib/rooms";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { useBookingModal } from "@/components/site/BookingModalProvider";
+import { BookNowButton } from "@/components/site/BookNowButton";
 
 export default function Home() {
+  const { openBooking } = useBookingModal();
+
   return (
     <div>
       {/* HERO */}
@@ -38,14 +41,7 @@ export default function Home() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button
-                href={buildWhatsAppLink({ roomType: "General" })}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="primary"
-              >
-                Book on WhatsApp
-              </Button>
+              <BookNowButton variant="primary">Book on WhatsApp</BookNowButton>
               <Button href={SITE.directionsLink} target="_blank" rel="noopener noreferrer">
                 Get Directions
               </Button>
@@ -65,8 +61,7 @@ export default function Home() {
                 const checkOut = String(fd.get("checkOut") ?? "");
                 const guests = String(fd.get("guests") ?? "");
                 const roomType = String(fd.get("roomType") ?? "");
-                const href = buildWhatsAppLink({ checkIn, checkOut, guests, roomType });
-                window.open(href, "_blank", "noopener,noreferrer");
+                openBooking({ checkIn, checkOut, guests, roomType });
               }}
             >
               <label className="grid gap-1">
@@ -187,15 +182,13 @@ export default function Home() {
                   <Button href={`/rooms/${room.slug}`} className="flex-1">
                     View Room
                   </Button>
-                  <Button
-                    href={buildWhatsAppLink({ roomType: room.name })}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <BookNowButton
+                    prefill={{ roomType: room.name }}
                     variant="primary"
                     className="flex-1"
                   >
                     WhatsApp
-                  </Button>
+                  </BookNowButton>
                 </div>
               </div>
             </div>
@@ -253,14 +246,9 @@ export default function Home() {
               <Button href={SITE.directionsLink} target="_blank" rel="noopener noreferrer">
                 Get Directions
               </Button>
-              <Button
-                href={buildWhatsAppLink({ roomType: "General" })}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="primary"
-              >
+              <BookNowButton prefill={{ roomType: "General" }} variant="primary">
                 WhatsApp
-              </Button>
+              </BookNowButton>
             </div>
           </div>
 
@@ -298,14 +286,7 @@ export default function Home() {
             tariff.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button
-              href={buildWhatsAppLink({ roomType: "General" })}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="primary"
-            >
-              Book on WhatsApp
-            </Button>
+            <BookNowButton variant="primary">Book on WhatsApp</BookNowButton>
             <Button href="/rooms">Explore Rooms</Button>
           </div>
         </div>
