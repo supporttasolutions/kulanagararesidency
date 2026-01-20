@@ -18,8 +18,8 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-dusk.svg"
-            alt="Kulangara Residency at dusk"
+            src="/kulangara.jpg"
+            alt="Kulangara Residency exterior"
             fill
             priority
             className="object-cover"
