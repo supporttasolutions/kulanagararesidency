@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SITE } from "@/lib/site";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
-import { Button } from "@/components/ui/Button";
+import { BookNowButton } from "@/components/site/BookNowButton";
 
 const nav = [
   { href: "/rooms", label: "Rooms" },
@@ -60,15 +59,9 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Button
-              href={buildWhatsAppLink({ roomType: "General" })}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="primary"
-              className="px-4 py-2 text-xs sm:text-sm"
-            >
+            <BookNowButton variant="primary" className="px-4 py-2 text-xs sm:text-sm">
               Book on WhatsApp
-            </Button>
+            </BookNowButton>
           </div>
         </motion.div>
       </div>

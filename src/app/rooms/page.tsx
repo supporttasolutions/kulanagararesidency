@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Section } from "@/components/site/Section";
 import { Button } from "@/components/ui/Button";
 import { ROOMS } from "@/lib/rooms";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { BookNowButton } from "@/components/site/BookNowButton";
 
 export const metadata = {
   title: "Rooms | Kulangara Residency",
@@ -53,14 +53,9 @@ export default function RoomsPage() {
 
                 <div className="mt-6 grid grid-cols-2 gap-3">
                   <Button href={`/rooms/${room.slug}`}>View Room</Button>
-                  <Button
-                    href={buildWhatsAppLink({ roomType: room.name })}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="primary"
-                  >
+                  <BookNowButton prefill={{ roomType: room.name }} variant="primary">
                     Book on WhatsApp
-                  </Button>
+                  </BookNowButton>
                 </div>
               </div>
             </article>

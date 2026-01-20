@@ -1,8 +1,8 @@
 import { Section } from "@/components/site/Section";
 import { Button } from "@/components/ui/Button";
 import { SITE } from "@/lib/site";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { EnquiryForm } from "@/components/contact/EnquiryForm";
+import { BookNowButton } from "@/components/site/BookNowButton";
 
 export const metadata = {
   title: "Contact | Kulangara Residency",
@@ -30,14 +30,9 @@ export default function ContactPage() {
               Use WhatsApp for booking and availability confirmations.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Button
-                href={buildWhatsAppLink({ roomType: "General" })}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="primary"
-              >
+              <BookNowButton prefill={{ roomType: "General" }} variant="primary">
                 Book on WhatsApp
-              </Button>
+              </BookNowButton>
               <Button href={`tel:${SITE.phoneE164}`}>Call</Button>
             </div>
           </div>
