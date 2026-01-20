@@ -35,8 +35,8 @@ export default function AmenitiesPage() {
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="relative overflow-hidden rounded-[32px] border border-border bg-surface">
             <Image
-              src="/kulangara.jpg"
-              alt="Kulangara Residency exterior"
+              src="/images/hero-dusk.svg"
+              alt="Amenities ambience"
               fill
               className="object-cover opacity-90"
             />

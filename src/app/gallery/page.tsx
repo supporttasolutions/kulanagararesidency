@@ -10,7 +10,7 @@ export const metadata = {
 
 const categories = [
   { key: "Rooms", images: ROOMS.flatMap((r) => r.images) },
-  { key: "Exterior", images: [{ src: "/kulangara.jpg", alt: "Kulangara Residency exterior" }] },
+  { key: "Exterior", images: [{ src: "/images/hero-dusk.svg", alt: "Exterior at dusk" }] },
   { key: "Reception", images: ROOMS[0]?.images ?? [] },
   { key: "Facilities", images: ROOMS[1]?.images ?? [] },
   { key: "Nearby", images: ROOMS[2]?.images ?? [] },
